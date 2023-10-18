@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock de Mercadona</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div id="contenedor">
+        <h1>Stock de Mercadona</h1>
+        <div>
+            <input type="text" name="input" id="input" class="input" placeholder="Inserte datos">
+            <br>
+            <button id="buscar">Buscar</button>
+            <button>Eliminar</button>
+            <button>Agregar</button>
+            <button id="btn1">Actualizar</button>
+        </div>
+        <div id="tablaContainer">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>PRODUCTO</th>
+                        <th>CANTIDAD</th>
+                        <th>PRECIO</th>
+                    </tr>
+                </thead>
+                <tbody id="body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
