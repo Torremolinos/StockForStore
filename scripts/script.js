@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, nombre: "Nueces", cantidad: 20, precio: 3 },
     { id: 4, nombre: "Foskitos", cantidad: 15, precio: 6 },
   ];
+
   inventario.forEach((producto) => {
     console.log("ID: " + producto.id);
     console.log("Nombre: " + producto.nombre);
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Precio: " + producto.precio);
     console.log("-------------");
   });
+  
   function crearTabla() {
     //añadir una logica esto debe ser el de crear elemento
     const tablaContainer = document.getElementById("body");
