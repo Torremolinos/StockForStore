@@ -7,13 +7,13 @@ h1 {
   text-align: center;
   margin: 5px;
   padding: 5px;
-  background: linear-gradient(45deg, #eeaeca, #94bbe9);
-  color: #035d9a;
+  background: linear-gradient(45deg,#f49d0c, #f49d0c);
+  color: #78340f;
 }
 body {
   display: flex;
   justify-content: center;
-  background: linear-gradient(45deg, #eeaeca, #94bbe9);
+  background: linear-gradient(45deg, #fde58a, #fde58a);
   padding: auto;
   margin: auto;
 }
@@ -22,11 +22,11 @@ body {
 .contenedor {
   border-radius: 5px;
   border-style: solid;
-  border-color: #000000;
+  border-color:#78340f;
 }
 
 table {
-  border: 5px solid #000000;
+  border: 5px solid #78340f;
   width: 100%; /* Ancho de la tabla al 100% del contenedor */
   border-collapse: collapse;
   
@@ -39,29 +39,32 @@ td {
 }
 
 th {
-  background: linear-gradient(45deg, #eeaeca, #94bbe9);
+  background: linear-gradient(45deg,#f49d0c, #f49d0c);
 }
 tbody tr:hover {
-  background-color: #eeaeca;
+  background-color:#d87607;
   cursor: pointer;
 }
 input {
   width: 100%;
   padding: 2%;
+  color: #78340f;
+  background-color: #fbd24e;
+  border-color:#451a03;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #387ca9, #865767);
+  background: linear-gradient(45deg, #f49d0c, #bc560a);
   cursor: pointer;
-  box-shadow: 0 12px 16px 0 #eeaeca, 0 17px 50px 0 rgba(0,0,0,0.19);
+
 }
 
 button {
   position: relative;
-  background-color: #eeaeca;
+  background:linear-gradient(45deg, #fabe25,#d87607 ) ;
   border: none;
   font-size: 28px;
-  color: #050505;
+  color:#78340f;
   padding: 20px;
   margin: 4px;
   width: 200px;
@@ -70,4 +73,7 @@ button {
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+}
+li{
+  color:#451a03
 }

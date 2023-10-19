@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn1 = document.getElementById("btn1");
-  const btn2 = document.getElementById("buscar");
+  const buscar = document.getElementById("buscar");
 
   const inventario = [
     { id: 1, nombre: "Copos de avena", cantidad: 50, precio: 1 },
@@ -52,7 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Llamar a la función con el nombre del producto que deseas buscar y mostrar en la tabla
-  btn2.addEventListener("click", () => {
+  buscar.addEventListener("click", () => {
     buscarProductoEnTabla(input.value);
   });
+  input.addEventListener("keydown", () => {
+    buscarProductoEnTabla(input.value);
 });
+});
+
