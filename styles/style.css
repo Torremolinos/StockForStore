@@ -26,7 +26,7 @@ body {
 }
 
 table {
-  border: 5px solid #78340f;
+  border: 3px solid #78340f;
   width: 100%; /* Ancho de la tabla al 100% del contenedor */
   border-collapse: collapse;
   
@@ -34,8 +34,10 @@ table {
 
 th,
 td {
+  border: 3px solid #451a03;
   text-align: center;
-  padding: 8px;
+  padding: 15px;
+  color:#451a03
 }
 
 th {
@@ -47,6 +49,7 @@ tbody tr:hover {
 }
 input {
   width: 100%;
+  margin-top: 4px;
   padding: 2%;
   color: #78340f;
   background-color: #fbd24e;
@@ -76,4 +79,17 @@ button {
 }
 li{
   color:#451a03
+}
+.pie{
+  text-align: center;
+  padding: 15px;
+  color:#451a03;
+  cursor: pointer;
+}
+tfoot tr:hover {
+  background-color:#d87607;
+  cursor: pointer;
+}
+tfoot{
+  border: #451a03;
 }

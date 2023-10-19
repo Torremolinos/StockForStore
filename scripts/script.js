@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btn1 = document.getElementById("btn1");
+  const actualizar = document.getElementById("actualizar");
   const buscar = document.getElementById("buscar");
+  const eliminar = document.getElementById("eliminar");
+  const agregar = document.getElementById("agregar");
 
   const inventario = [
     { id: 1, nombre: "Copos de avena", cantidad: 50, precio: 1 },
@@ -16,8 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Precio: " + producto.precio);
     console.log("-------------");
   });
-  
-  function crearTabla() {
+
+  function actualizacion() {
     //añadir una logica esto debe ser el de crear elemento
     const tablaContainer = document.getElementById("body");
     tablaContainer.innerHTML = "";
@@ -27,8 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
       tablaContainer.appendChild(fila);
     });
   }
-  btn1.addEventListener("click", () => {
-    crearTabla();
+  actualizar.addEventListener("click", () => {
+    actualizacion();
   });
 
   function buscarProductoEnTabla(nombre) {
@@ -57,6 +59,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   input.addEventListener("keydown", () => {
     buscarProductoEnTabla(input.value);
+  });
 });
-});
-
