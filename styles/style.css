@@ -18,8 +18,9 @@ body {
   margin: auto;
 }
 
-
 .contenedor {
+  padding: 4px;
+  margin: 4px;
   border-radius: 5px;
   border-style: solid;
   border-color:#78340f;
@@ -92,4 +93,7 @@ tfoot tr:hover {
 }
 tfoot{
   border: #451a03;
+}
+.botonesAbajo{
+  text-align: center;
 }

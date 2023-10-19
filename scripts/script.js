@@ -10,16 +10,35 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: 3, nombre: "Nueces", cantidad: 20, precio: 3 },
     { id: 4, nombre: "Foskitos", cantidad: 15, precio: 6 },
   ];
+  const cantidadTotal = () => {
+    let cantidadTotal = 0; 
+    inventario.forEach((producto) => {
+      cantidadTotal += producto.cantidad;
+    });
+  
+    return cantidadTotal;
+  }
+  const precioTotal = () => {
+    let precioTotal = 0;
+    inventario.forEach((producto) => {
+      precioTotal += producto.precio;
+    });
+  
+    return precioTotal;
+  }
+
 
   inventario.forEach((producto) => {
     console.log("ID: " + producto.id);
     console.log("Nombre: " + producto.nombre);
     console.log("Cantidad: " + producto.cantidad);
     console.log("Precio: " + producto.precio);
+    console.log(`Cantidad Total: ${cantidadTotal()}`)
+    console.log(`Precio Total: ${precioTotal()}`)
     console.log("-------------");
   });
 
-  function actualizacion() {
+  function actualizacionBody() {
     //añadir una logica esto debe ser el de crear elemento
     const tablaContainer = document.getElementById("body");
     tablaContainer.innerHTML = "";
@@ -29,13 +48,28 @@ document.addEventListener("DOMContentLoaded", () => {
       tablaContainer.appendChild(fila);
     });
   }
+  function actualizacionPie() {
+    const pie = document.getElementById("totalProducto");
+    const pie2= document.getElementById("totalPrecio");
+    pie.innerHTML= `TOTAL PRODUCTOS ${cantidadTotal()}€`;
+    pie2.innerHTML= `PRECIO TOTAL ${precioTotal()}€`;
+  
+}
   actualizar.addEventListener("click", () => {
-    actualizacion();
+    actualizacionBody();
+    actualizacionPie();
   });
+
 
   function buscarProductoEnTabla(nombre) {
     const tablaContainer = document.getElementById("body");
-    tablaContainer.innerHTML = ""; // Limpiar la tabla
+    const tablaContainer2 = document.getElementById("pie");
+    const pie = document.getElementById("totalProducto");
+    const pie2= document.getElementById("totalPrecio");
+    tablaContainer.innerHTML = "";
+    pie.innerHTML= "";
+    pie2.innerHTML="";
+
 
     inventario.forEach((producto) => {
       if (producto.nombre === nombre) {
