@@ -5,37 +5,77 @@ document.addEventListener("DOMContentLoaded", () => {
   const agregar = document.getElementById("agregar");
 
   const inventario = [
-    { id: 1, nombre: "Copos de avena", cantidad: 50, precio: 1 },
-    { id: 2, nombre: "Solomillos de Salmón", cantidad: 30, precio: 15 },
-    { id: 3, nombre: "Nueces", cantidad: 20, precio: 3 },
-    { id: 4, nombre: "Foskitos", cantidad: 15, precio: 6 },
+    { id: 1, nombre: "copos de avena", cantidad: 50, precio: 1 },
+    { id: 2, nombre: "solomillos de salmon", cantidad: 30, precio: 15 },
+    { id: 3, nombre: "nueces", cantidad: 20, precio: 3 },
+    { id: 4, nombre: "foskitos", cantidad: 15, precio: 6 },
   ];
+  /*const nuevo = {id: 5, nombre: "maiz", cantidad: 60, precio: 40 };
+  console.log(typeof(nuevo));
+  inventario.push(nuevo); pruebas para saber porque me daba undefined.*/
   const cantidadTotal = () => {
-    let cantidadTotal = 0; 
+    let cantidadTotal = 0;
     inventario.forEach((producto) => {
       cantidadTotal += producto.cantidad;
     });
-  
+
     return cantidadTotal;
-  }
+  };
   const precioTotal = () => {
     let precioTotal = 0;
     inventario.forEach((producto) => {
       precioTotal += producto.precio;
     });
-  
-    return precioTotal;
-  }
 
+    return precioTotal;
+  };
 
   inventario.forEach((producto) => {
     console.log("ID: " + producto.id);
     console.log("Nombre: " + producto.nombre);
     console.log("Cantidad: " + producto.cantidad);
     console.log("Precio: " + producto.precio);
-    console.log(`Cantidad Total: ${cantidadTotal()}`)
-    console.log(`Precio Total: ${precioTotal()}`)
+    console.log(`Cantidad Total: ${cantidadTotal()}`);
+    console.log(`Precio Total: ${precioTotal()}`);
     console.log("-------------");
+  });
+  
+  const eliminarItem = () => {
+    
+
+
+  };
+  const agregarItem = () => {
+    let productoUltimoId = 1;
+    const regex = /^[a-zA-Z\s]*[a-zA-Z][a-zA-Z\s]*$/;
+    const nombreProducto = document.getElementById("nombre").value.trim().toLowerCase();
+    const cantidadProducto = parseFloat(document.getElementById("cantidad").value);
+    const precioProducto = parseFloat(document.getElementById("precio").value);
+    inventario.forEach((producto) => {
+      producto.id;
+      productoUltimoId++;
+      console.log(`${productoUltimoId}`);
+    });
+    if (nombreProducto == "" || !regex.test(nombreProducto) || nombreProducto==" " ||cantidadProducto < 0 || isNaN(cantidadProducto) || precioProducto < 0 || isNaN(precioProducto)){
+      alert(`Inserta correctamente los datos`);
+      return;
+    }
+    
+    const newItem = 
+      {
+        id: productoUltimoId,
+        nombre: nombreProducto,
+        cantidad: cantidadProducto,
+        precio: precioProducto,
+      };
+    inventario.push(newItem);
+    document.getElementById("nombre").value="";
+    document.getElementById("cantidad").value="";
+    document.getElementById("precio").value="";
+  };
+
+  agregar.addEventListener("click", () => {
+    agregarItem();
   });
 
   function actualizacionBody() {
@@ -49,27 +89,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   function actualizacionPie() {
+    const tablaContainer = document.getElementById("pie");
     const pie = document.getElementById("totalProducto");
-    const pie2= document.getElementById("totalPrecio");
-    pie.innerHTML= `TOTAL PRODUCTOS ${cantidadTotal()}€`;
-    pie2.innerHTML= `PRECIO TOTAL ${precioTotal()}€`;
-  
-}
+    const pie2 = document.getElementById("totalPrecio");
+    const fila = document.createElement("tr");
+    pie.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
+    pie2.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
+  }
   actualizar.addEventListener("click", () => {
     actualizacionBody();
     actualizacionPie();
   });
 
-
   function buscarProductoEnTabla(nombre) {
     const tablaContainer = document.getElementById("body");
-    const tablaContainer2 = document.getElementById("pie");
+    // const tablaContainer2 = document.getElementById("pie");
     const pie = document.getElementById("totalProducto");
-    const pie2= document.getElementById("totalPrecio");
+    const pie2 = document.getElementById("totalPrecio");
     tablaContainer.innerHTML = "";
-    pie.innerHTML= "";
-    pie2.innerHTML="";
-
+    pie.innerHTML = "";
+    pie2.innerHTML = "";
 
     inventario.forEach((producto) => {
       if (producto.nombre === nombre) {
