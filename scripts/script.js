@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const eliminarItem = () => {
     const nombreProducto = document
-      .getElementById("nombre")
+      .getElementById("input")
       .value.trim()
       .toLowerCase();
     for (let i = 0; i < inventario.length; i++) {
