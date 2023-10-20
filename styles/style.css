@@ -44,24 +44,27 @@ td {
   border: 3px solid #451a03;
   text-align: center;
   padding: 15px;
-  color:#451a03
+  color:#451a03;
+  font-size: 40px;
 }
 
 th {
   background: linear-gradient(45deg,#FFCD00, #edcb43);
   color: #2a1f1f;
+  font-size: 40px;
 }
 tbody tr:hover {
   background-color:#d87607;
   cursor: pointer;
 }
 input {
-  width: 100%;
-  margin-top: 4px;
-  padding: 2%;
+  width: 66%;
+  margin-top: 2px;
+  padding: 1%;
   color: #78340f;
   background-color: #fbd24e;
   border-color:#451a03;
+  font-size: 40px;
 }
 
 button:hover {
@@ -76,8 +79,9 @@ button {
   border: none;
   font-size: 28px;
   color:#78340f;
-  padding: 20px;
-  margin: 4px;
+  padding: 31px;
+  height: 100%;
+  margin: 0px;
   width: 200px;
   text-align: center;
   transition-duration: 0.4s;
