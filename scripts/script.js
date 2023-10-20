@@ -1,5 +1,5 @@
 /**
- * @Autor: Adrian Iglesias Riño.
+ * @Autor: Adrian Iglesias Riño. (Student)
  * @Github: https://github.com/Torremolinos/StockForStore
  */
 document.addEventListener("DOMContentLoaded", () => {
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tablaContainer.innerHTML = "";
     inventario.forEach((producto) => {
       const fila = document.createElement("tr");
-      fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td>`;
+      fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}€</td>`;
       tablaContainer.appendChild(fila);
     });
     /* aqui con while... function actualizacionBody() {

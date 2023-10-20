@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock de Mercadona</title>
+    <title>Alimerka StockWebsite</title>
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <header class="header">
+        <img src="assets/img/Alimerka.png" alt="LogoAlimerka">
+        <h1>Stock Center</h1>
+    </header>
     <div class="contenedor">
-        <h1>Stock de Mercadona</h1>
         <div>
-            <input type="text" name="input" id="input" class="input" placeholder="Inserte datos">
+            <input type="text" name="input" id="input" class="input" placeholder="Inserte producto">
         </div>
         <div class="botonesArriba">
             <button id="buscar">Buscar</button>
@@ -26,6 +29,7 @@
                         <th>PRODUCTO</th>
                         <th>CANTIDAD</th>
                         <th>PRECIO</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="body">

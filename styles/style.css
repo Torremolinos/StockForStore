@@ -3,19 +3,25 @@
   margin: auto;
   padding: auto;
 }
+img{
+  padding: 20px;
+  width: 40%;
+}
 h1 {
+  width: 30%;
   text-align: center;
   margin: 5px;
   padding: 5px;
-  background: linear-gradient(45deg,#f49d0c, #f49d0c);
-  color: #78340f;
+  color: #FFCD00;
+  font-size:50px;
+}
+header{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 body {
-  display: flex;
-  justify-content: center;
-  background: linear-gradient(45deg, #fde58a, #fde58a);
-  padding: auto;
-  margin: auto;
+ background-color: #fff;;
 }
 
 .contenedor {
@@ -42,7 +48,8 @@ td {
 }
 
 th {
-  background: linear-gradient(45deg,#f49d0c, #f49d0c);
+  background: linear-gradient(45deg,#FFCD00, #edcb43);
+  color: #2a1f1f;
 }
 tbody tr:hover {
   background-color:#d87607;
