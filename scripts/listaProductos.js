@@ -1,21 +1,42 @@
-/**
- * @Autor: Adrian Iglesias Riño. (Student)
- * @Github: https://github.com/Torremolinos/StockForStore
- */
-document.addEventListener("DOMContentLoaded", () => {
+import { inventario } from "./inventario.js";
+
+export const listaProductos = () => {
   const actualizar = document.getElementById("actualizar");
   const buscar = document.getElementById("buscar");
   const eliminar = document.getElementById("eliminar");
   const agregar = document.getElementById("agregar");
 
-  const inventario = [
-    { id: 1, nombre: "copos de avena", cantidad: 50, precio: 1 },
-    { id: 2, nombre: "solomillos de salmon", cantidad: 30, precio: 15 },
-    { id: 3, nombre: "nueces", cantidad: 20, precio: 3 },
-  ];
-  /*const nuevo = {id: 5, nombre: "maiz", cantidad: 60, precio: 40 };
-  console.log(typeof(nuevo));
-  inventario.push(nuevo); pruebas para saber porque me daba undefined.*/
+  const tablaContainer = document.getElementById("body");
+  inventario.forEach((item) => {
+    const row = tablaContainer.insertRow();
+    const cell1 = row.insertCell(0);
+    const cell2 = row.insertCell(1);
+    const cell3 = row.insertCell(2);
+    const cell4 = row.insertCell(3);
+    const cell5 = row.insertCell(4);
+
+    cell1.innerHTML = item.id;
+    cell2.innerHTML = item.nombre;
+    cell3.innerHTML = item.cantidad;
+    cell4.innerHTML = item.precio
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Borrar";
+    deleteButton.addEventListener("click", () => {
+      eliminarItem();
+      inventario.forEach((producto) => {
+        console.log("ID: " + producto.id);
+      });
+    });
+
+    const updateButton = document.createElement("button");
+    updateButton.innerText = "Actualizar";
+    updateButton.addEventListener("click", () => {});
+
+    cell5.appendChild(deleteButton);
+    cell5.appendChild(updateButton);
+  });
+
   const cantidadTotal = () => {
     let cantidadTotal = 0;
     inventario.forEach((producto) => {
@@ -26,8 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   const precioTotal = () => {
     let precioTotal = 0;
+    let precioUnitario = 0;
     inventario.forEach((producto) => {
-      precioTotal += producto.precio;
+      precioUnitario += producto.cantidad * producto.precio;
+      precioTotal = precioUnitario;
     });
 
     return precioTotal;
@@ -39,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Cantidad: " + producto.cantidad);
     console.log("Precio: " + producto.precio);
     console.log(`Cantidad Total: ${cantidadTotal()}`);
-    console.log(`Precio Total: ${precioTotal()}`);
+    console.log(`Precio Total: ${precioTotal().toFixed(2)}`);
     console.log("-------------");
   });
 
@@ -55,14 +78,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     //el problema por lo que veo es que cuando borro el objeto con id inferior al maximo
-    //cuando creo otro se iguala al ultimo mas alto. no entiendo quiero arreglarlo pero 
+    //cuando creo otro se iguala al ultimo mas alto. no entiendo quiero arreglarlo pero
     //me esta volviendo loco.
   };
 
   eliminar.addEventListener("click", () => {
     eliminarItem();
     inventario.forEach((producto) => {
-      console.log("ID: " + producto.id)});
+      console.log("ID: " + producto.id);
+    });
   });
   const agregarItem = () => {
     let productoUltimoId = 1;
@@ -114,23 +138,78 @@ document.addEventListener("DOMContentLoaded", () => {
     const tablaContainer = document.getElementById("body");
     tablaContainer.innerHTML = "";
     inventario.forEach((producto) => {
-      const fila = document.createElement("tr");
-      fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}€</td>`;
-      tablaContainer.appendChild(fila);
+      const row = tablaContainer.insertRow();
+      const cell1 = row.insertCell(0);
+      const cell2 = row.insertCell(1);
+      const cell3 = row.insertCell(2);
+      const cell4 = row.insertCell(3);
+
+      cell1.innerHTML = item.nombre;
+      cell1.innerHTML = item.cantidad;
+      cell1.innerHTML = item.precio;
+
+      const deleteButton = document.createElement("button");
+      deleteButton.innerHTML = "Borrar";
+      deleteButton.addEventListener("click", () => {
+        eliminarItem();
+        inventario.forEach((producto) => {
+          console.log("ID: " + producto.id);
+        });
+      });
+
+      const updateButton = document.createElement("button");
+      updateButton.innerText = "Actualizar";
+      updateButton.addEventListener("click", () => {});
+
+      cell4.appendChild(deleteButton);
+      cell4.appendChild(updateButton);
     });
+
+    /*
+        inventory.forEach(item => {
+
+        const row = table.insertRow()
+
+        const cell1 = row.insertCell(0)
+        const cell2 = row.insertCell(1)
+        const cell3 = row.insertCell(2)
+        const cell4 = row.insertCell(3)
+
+        cell1.innerHTML = item.nombre
+        cell2.innerHTML = item.cantidad
+        cell3.innerHTML = item.precio
+
+        const deleteButton = document.createElement("button")
+        deleteButton.innerText = "Borrar"
+        deleteButton.addEventListener("click", () => {
+            //Se añadira funcionalidad proximamente
+        })
+
+        const updateButton = document.createElement("button")
+        updateButton.innerText = "Actualizar"
+        updateButton.addEventListener("click", () => {
+            //Se añadira funcionalidad proximamente
+        })
+
+        cell4.appendChild(deleteButton)
+        cell4.appendChild(updateButton)
+
+
+    })
+        */
     /* aqui con while... function actualizacionBody() {
-      const tablaContainer = document.getElementById("body");
-      tablaContainer.innerHTML = "";
-    
-      let i = 0;
-      while (i < inventario.length) {
-        const producto = inventario[i];
-        const fila = document.createElement("tr");
-        fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td>`;
-        tablaContainer.appendChild(fila);
-        i++;
-      }
-    }*/
+          const tablaContainer = document.getElementById("body");
+          tablaContainer.innerHTML = "";
+        
+          let i = 0;
+          while (i < inventario.length) {
+            const producto = inventario[i];
+            const fila = document.createElement("tr");
+            fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td>`;
+            tablaContainer.appendChild(fila);
+            i++;
+          }
+        }*/
   }
   function actualizacionPie() {
     const tablaContainer = document.getElementById("pie");
@@ -172,9 +251,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Llamar a la función con el nombre del producto que deseas buscar y mostrar en la tabla
   buscar.addEventListener("click", () => {
-    buscarProductoEnTabla(input.value);
+    const inputValue = input.value.toLowerCase();
+    buscarProductoEnTabla(inputValue);
   });
   input.addEventListener("keydown", () => {
-    buscarProductoEnTabla(input.value);
+    const inputValue = input.value.toLowerCase();
+    buscarProductoEnTabla(inputValue);
   });
-});
+};
