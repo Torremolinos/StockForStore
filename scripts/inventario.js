@@ -1,6 +1,5 @@
-export { inventario};
 
-const inventario = [
+ export const inventario = [
     { id: 1, nombre: "copos de avena", cantidad: 50, precio: 0.95 },
     { id: 2, nombre: "solomillos de salmon", cantidad: 30, precio: 15 },
     { id: 3, nombre: "nueces", cantidad: 20, precio: 2.95 },
