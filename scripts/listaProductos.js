@@ -25,7 +25,7 @@ export const listaProductos = () => {
 
     return precioTotal;
   };
-
+/*Aqui tengo la tabla esto corresponde a la parte del body y luego tenemos la parte del pie*/
   const tablaContainer = document.getElementById("body");
   inventario.forEach((item) => {
     const row = tablaContainer.insertRow();
@@ -43,10 +43,7 @@ export const listaProductos = () => {
     const deleteButton = document.createElement("button");
     deleteButton.innerHTML = "Borrar";
     deleteButton.addEventListener("click", () => {
-      eliminarItem();
-      inventario.forEach((producto) => {
-        console.log("ID: " + producto.id);
-      });
+      
     });
     const updateButton = document.createElement("button");
     updateButton.innerText = "Actualizar";
@@ -56,7 +53,7 @@ export const listaProductos = () => {
     cell5.appendChild(updateButton);
     
   });
-
+ /*En el pie meto los productos totales y el precio total de todos los productos disponibles.*/
   const tablacontainer2 = document.getElementById("pie");
   const row2 = tablacontainer2.insertRow();
   const cell6 = row2.insertCell(0);
@@ -65,7 +62,7 @@ export const listaProductos = () => {
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
 
-  inventario.forEach((producto) => {
+  /*inventario.forEach((producto) => {
     console.log("ID: " + producto.id);
     console.log("Nombre: " + producto.nombre);
     console.log("Cantidad: " + producto.cantidad);
@@ -73,9 +70,9 @@ export const listaProductos = () => {
     console.log(`Cantidad Total: ${cantidadTotal()}`);
     console.log(`Precio Total: ${precioTotal().toFixed(2)}`);
     console.log("-------------");
-  });
+  }); esto era para debuggear lo dejo comentado y lo borrare*/
 
-  const eliminarItem = () => {
+  /*const eliminarItem = () => {
     const nombreProducto = document
       .getElementById("input")
       .value.trim()
@@ -85,7 +82,7 @@ export const listaProductos = () => {
       if (inventario[i].nombre === nombreProducto) {
         inventario.splice(i, 1);
       }
-    }
+    } este era mi antiguo metodo para eliminar lo comento y lo eliminare*/
     //el problema por lo que veo es que cuando borro el objeto con id inferior al maximo
     //cuando creo otro se iguala al ultimo mas alto. no entiendo quiero arreglarlo pero
     //me esta volviendo loco.
@@ -206,6 +203,7 @@ export const listaProductos = () => {
     const pie = document.getElementById("totalProducto");
     const pie2 = document.getElementById("totalPrecio");
     tablaContainer.innerHTML = "";
+    tablaContainer2.innerHTML = "";
     pie.innerHTML = "";
     pie2.innerHTML = "";
 
@@ -234,4 +232,4 @@ export const listaProductos = () => {
     const inputValue = input.value.toLowerCase();
     buscarProductoEnTabla(inputValue);
   });
-};
+;
