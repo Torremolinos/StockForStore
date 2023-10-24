@@ -108,3 +108,8 @@ tfoot{
 .botonesAbajo{
   text-align: center;
 }
+.product-form-styles{
+  background-color: black;
+  color: white;
+  padding: 20px;
+}

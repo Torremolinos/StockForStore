@@ -5,6 +5,26 @@ export const listaProductos = () => {
   const buscar = document.getElementById("buscar");
   const eliminar = document.getElementById("eliminar");
   const agregar = document.getElementById("agregar");
+  
+  const cantidadTotal = () => {
+    let cantidadTotal = 0;
+    inventario.forEach((producto) => {
+      cantidadTotal += producto.cantidad;
+    });
+
+    return cantidadTotal;
+  };
+
+  const precioTotal = () => {
+    let precioTotal = 0;
+    let precioUnitario = 0;
+    inventario.forEach((producto) => {
+      precioUnitario += producto.cantidad * producto.precio;
+      precioTotal = precioUnitario;
+    });
+
+    return precioTotal;
+  };
 
   const tablaContainer = document.getElementById("body");
   inventario.forEach((item) => {
@@ -18,7 +38,7 @@ export const listaProductos = () => {
     cell1.innerHTML = item.id;
     cell2.innerHTML = item.nombre;
     cell3.innerHTML = item.cantidad;
-    cell4.innerHTML = item.precio
+    cell4.innerHTML = item.precio;
 
     const deleteButton = document.createElement("button");
     deleteButton.innerHTML = "Borrar";
@@ -35,26 +55,16 @@ export const listaProductos = () => {
 
     cell5.appendChild(deleteButton);
     cell5.appendChild(updateButton);
+    
   });
 
-  const cantidadTotal = () => {
-    let cantidadTotal = 0;
-    inventario.forEach((producto) => {
-      cantidadTotal += producto.cantidad;
-    });
-
-    return cantidadTotal;
-  };
-  const precioTotal = () => {
-    let precioTotal = 0;
-    let precioUnitario = 0;
-    inventario.forEach((producto) => {
-      precioUnitario += producto.cantidad * producto.precio;
-      precioTotal = precioUnitario;
-    });
-
-    return precioTotal;
-  };
+  const tablacontainer2 = document.getElementById("pie");
+  const row2 = tablacontainer2.insertRow();
+  const cell6 = row2.insertCell(0);
+  const cell7 = row2.insertCell(1);
+  cell6.colSpan=3;
+  cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
+  cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
 
   inventario.forEach((producto) => {
     console.log("ID: " + producto.id);
@@ -134,19 +144,19 @@ export const listaProductos = () => {
   });
 
   function actualizacionBody() {
-    //añadir una logica esto debe ser el de crear elemento
     const tablaContainer = document.getElementById("body");
-    tablaContainer.innerHTML = "";
-    inventario.forEach((producto) => {
+    inventario.forEach((item) => {
       const row = tablaContainer.insertRow();
       const cell1 = row.insertCell(0);
       const cell2 = row.insertCell(1);
       const cell3 = row.insertCell(2);
       const cell4 = row.insertCell(3);
+      const cell5 = row.insertCell(4);
 
-      cell1.innerHTML = item.nombre;
-      cell1.innerHTML = item.cantidad;
-      cell1.innerHTML = item.precio;
+      cell1.innerHTML = item.id;
+      cell2.innerHTML = item.nombre;
+      cell3.innerHTML = item.cantidad;
+      cell4.innerHTML = item.precio;
 
       const deleteButton = document.createElement("button");
       deleteButton.innerHTML = "Borrar";
@@ -161,10 +171,10 @@ export const listaProductos = () => {
       updateButton.innerText = "Actualizar";
       updateButton.addEventListener("click", () => {});
 
-      cell4.appendChild(deleteButton);
-      cell4.appendChild(updateButton);
+      cell5.appendChild(deleteButton);
+      cell5.appendChild(updateButton);
+      
     });
-
     /*
         inventory.forEach(item => {
 
@@ -211,14 +221,23 @@ export const listaProductos = () => {
           }
         }*/
   }
-  function actualizacionPie() {
+  /* function actualizacionPie() {
     const tablaContainer = document.getElementById("pie");
     const pie = document.getElementById("totalProducto");
     const pie2 = document.getElementById("totalPrecio");
     const fila = document.createElement("tr");
     pie.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
     pie2.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
-  }
+  }*/
+ function actualizacionPie(){
+    const tablacontainer2 = document.getElementById("pie");
+    const row2 = tablacontainer2.insertRow();
+    const cell6 = row2.insertCell(0);
+    const cell7 = row2.insertCell(1);
+    cell6.colSpan=3;
+    cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
+    cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
+ }
   actualizar.addEventListener("click", () => {
     actualizacionBody();
     actualizacionPie();
@@ -226,6 +245,7 @@ export const listaProductos = () => {
 
   function buscarProductoEnTabla(nombre) {
     const tablaContainer = document.getElementById("body");
+    const tablaContainer2 = document.getElementById("pie");
     // const tablaContainer2 = document.getElementById("pie");
     const pie = document.getElementById("totalProducto");
     const pie2 = document.getElementById("totalPrecio");
