@@ -43,8 +43,21 @@ export const listaProductos = () => {
     const deleteButton = document.createElement("button");
     deleteButton.innerHTML = "Borrar";
     deleteButton.addEventListener("click", () => {
-      
-    });
+      if (confirm(`¿Estás seguro que desea borrar el producto ${item.nombre}?`)) {
+        //Recibe el producto a borrar
+        //Encuentra el índice del producto a eliminar: deltro del forEach, comparamos el product con el item correspondiente de inventory
+        const index = inventario.findIndex(product => product.id === item.id)
+        //Si el índice resultante no es -1, tenemos coincidencia
+        if (index !== -1) {
+            //Borramos el producto del array, le indicamos el objeto y cuantos queremos borrar
+            inventario.splice(index, 1);
+        }
+
+    }
+    tablaContainer.innerHTML = "";
+    listaProductos();
+});
+   
     const updateButton = document.createElement("button");
     updateButton.innerText = "Actualizar";
     updateButton.addEventListener("click", () => {});
@@ -52,8 +65,10 @@ export const listaProductos = () => {
     cell5.appendChild(deleteButton);
     cell5.appendChild(updateButton);
     
+    
   });
- /*En el pie meto los productos totales y el precio total de todos los productos disponibles.*/
+  
+
   const tablacontainer2 = document.getElementById("pie");
   const row2 = tablacontainer2.insertRow();
   const cell6 = row2.insertCell(0);
@@ -61,6 +76,8 @@ export const listaProductos = () => {
   cell6.colSpan=3;
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
+  
+ /*En el pie meto los productos totales y el precio total de todos los productos disponibles.*/
 
   /*inventario.forEach((producto) => {
     console.log("ID: " + producto.id);
@@ -128,6 +145,13 @@ export const listaProductos = () => {
       cell5.appendChild(updateButton);
       
     });
+    const tablacontainer2 = document.getElementById("pie");
+    const row2 = tablacontainer2.insertRow();
+    const cell6 = row2.insertCell(0);
+    const cell7 = row2.insertCell(1);
+    cell6.colSpan=3;
+    cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
+    cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
     /*
         inventory.forEach(item => {
 
@@ -183,13 +207,7 @@ export const listaProductos = () => {
     pie2.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
   }*/
  function actualizacionPie(){
-    const tablacontainer2 = document.getElementById("pie");
-    const row2 = tablacontainer2.insertRow();
-    const cell6 = row2.insertCell(0);
-    const cell7 = row2.insertCell(1);
-    cell6.colSpan=3;
-    cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
-    cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
+
  }
   actualizar.addEventListener("click", () => {
     actualizacionBody();

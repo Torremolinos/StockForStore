@@ -13,14 +13,24 @@
         <img src="assets/img/Alimerka.png" alt="LogoAlimerka">
         <h1>Stock Center</h1>
     </header>
-    <div class="contenedor">
-        <div class="botonesArriba">
+    <form id="formulario">
+        <h2>BUSCADOR DE PRODUCTOS:</h2>
             <input type="text" name="input" id="input" class="input" placeholder="Inserte producto">
-            <button id="buscar">Buscar</button>
-            <button id="eliminar">Eliminar</button>
-            <button id="actualizar">Actualizar</button>
-        </div>
-        <br>
+            <br>
+            <div class="botonesForm">
+                <button id="buscar">Buscar</button>
+                <button id="eliminar">Eliminar</button>
+                <button id="actualizar">Actualizar</button>
+            </div>
+            <h2>AGREGAR PRODUCTO</h2>
+            <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
+            <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">
+            <input type="number" name="precio" id="precio" required placeholder="Inserta PRECIO">
+            <div class="botonProduct">
+            <button id="agregar">Agregar</button>
+            </div>
+    </form>
+    <div class="contenedor">
         <div id="tablaContainer">
             <table class="table">
                 <thead>
@@ -34,20 +44,9 @@
                 </thead>
                 <tbody id="body">
                 </tbody>
-                <tfoot id="pie">
-                   
+                <tfoot id="pie">    
                 </tfoot>
             </table>
-        </div> <!--meter Form-->
-        <div class="agregaciones" id="agregaciones">
-            <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
-            <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">
-            <input type="number" name="precio" id="precio" required placeholder="Inserta PRECIO">
-        </div>
-            <div class="botonesAbajo">
-                <button id="agregar">Agregar</button>
-            </div>
-        
     </div>
       <!--Type module importante.-->
       <script type="module" src="scripts/index.js"></script>
