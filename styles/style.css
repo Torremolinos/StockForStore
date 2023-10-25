@@ -16,6 +16,11 @@ h1 {
   color: #FFCD00;
   font-size:50px;
 }
+h2{
+  font-weight: bold;
+  font-size:30px;
+  margin: 5px 0;
+}
 form{
   font-weight: bold;
   display: block;
@@ -65,7 +70,7 @@ td {
 th {
   background: linear-gradient(45deg,#FFCD00, #edcb43);
   color: #2a1f1f;
-  font-size: 40px;
+  font-size: 30px;
 }
 tbody tr:hover {
   background-color:#d87607;

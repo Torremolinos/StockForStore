@@ -1,47 +1,28 @@
 import { inventario } from "./inventario.js";
-
-const agregar = document.getElementById("agregar");
+import { listaProductos } from "./listaProductos.js";
 export const agregarItem = () => {
-    let productoUltimoId = 1;
-    const regex = /^[a-zA-Z\s]*[a-zA-Z][a-zA-Z\s]*$/;
-    const nombreProducto = document
-      .getElementById("nombre")
-      .value.trim()
-      .toLowerCase();
-    const cantidadProducto = parseFloat(
-      document.getElementById("cantidad").value
-    );
+  const agregar = document.getElementById("formulario");
+  agregar.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const nombreProducto = document.getElementById("nombre").value.trim().toLowerCase();
+    const cantidadProducto = parseFloat(document.getElementById("cantidad").value);
     const precioProducto = parseFloat(document.getElementById("precio").value);
-    inventario.forEach((producto) => {
-      producto.id;
-      productoUltimoId++;
-      console.log(`${productoUltimoId}`);
-    });
-    if (
-      nombreProducto == "" ||
-      !regex.test(nombreProducto) ||
-      nombreProducto == " " ||
-      cantidadProducto < 0 ||
-      isNaN(cantidadProducto) ||
-      precioProducto < 0 ||
-      isNaN(precioProducto)
-    ) {
-      alert(`Inserta correctamente los datos`);
-      return;
+
+    if (nombreProducto && !isNaN(cantidadProducto) && !isNaN(precioProducto)) {
+      const newItem = {
+        id: inventario.length + 1, //esto lo hicimos en clase con diego, en vez de crear yo una variable
+        //meto el array le sumo uno. yo lo que hacia era coger el ultimo y sumarle uno.
+        nombre: nombreProducto,
+        cantidad: cantidadProducto,
+        precio: precioProducto,
+      }
+      inventario.push(newItem);
+      console.log(newItem.id);
+      //ahora para limpiar la tabla según lo que tenia antes y confirmo David.
+      const limpiarTabla = document.getElementById("body");
+      limpiarTabla.innerHTML = "";
+      agregar.reset(); //esto resetea los campos en vez de tener que poner innerHTML ="";
+      listaProductos();
     }
-
-    const newItem = {
-      id: productoUltimoId,
-      nombre: nombreProducto,
-      cantidad: cantidadProducto,
-      precio: precioProducto,
-    };
-    inventario.push(newItem);
-    document.getElementById("nombre").value = "";
-    document.getElementById("cantidad").value = "";
-    document.getElementById("precio").value = "";
-  };
-
-  agregar.addEventListener("click", () => {
-    agregarItem();
   });
+};
