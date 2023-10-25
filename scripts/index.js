@@ -4,7 +4,7 @@
  */
 import { listaProductos } from "./listaProductos.js";
 import { agregarItem } from "./agregarProducto.js";
-import { buscarProductoEnTabla } from "./buscar.js";
+import { buscarProductoPorNombre } from "./buscar.js";
 
 document.addEventListener("DOMContentLoaded", listaProductos);
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", () => {
     const botonBuscar = document.getElementById("formulario");
     botonBuscar.addEventListener("click", () => {
-      buscarProductoEnTabla(nombre);
+      buscarProductoPorNombre(nombre);
     });
   });
 });

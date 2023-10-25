@@ -16,12 +16,30 @@
     <form id="formulario">
         <h2>BUSCADOR DE PRODUCTOS:</h2>
             <input type="text" name="input" id="buscar" class="input" placeholder="Inserte producto">
-            <br>
             <div class="botonesForm">
                 <button id="buscar">Buscar</button>
                 <button id="eliminar">Eliminar</button>
                 <button id="actualizar">Actualizar</button>
             </div>
+           
+    </form>
+    <div id="buscador" class="buscador">
+        <table>
+            <thead>
+         <tr>
+             <th>ID</th>
+             <th>PRODUCTO</th>
+             <th>CANTIDAD</th>
+             <th>PRECIO</th>
+             <th>ACCIONES</th>
+         </tr>
+        </thead>
+        <tbody id="tablaBuscador">
+           
+        </tbody>
+        </table> 
+     </div>
+    <form id="formulario2"> 
             <h2> AGREGAR PRODUCTO:</h2>
             <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
             <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">

@@ -1,31 +1,46 @@
 import { inventario } from "./inventario.js";
+export const buscarProductoPorNombre =(nombre)=> {
+  return inventario.find((producto) => producto.nombre === nombre);
+}
+const productoEncontrado = buscarProductoPorNombre(nombre);
 
-export function buscarProductoEnTabla(nombre) {
-  const tablaContainer = document.getElementById("body");
-  // const tablaContainer2 = document.getElementById("pie");
+if (productoEncontrado) {
+  const row = tablaContainer.insertRow();
+  const cell1 = row.insertCell(0);
+  const cell2 = row.insertCell(1);
+  const cell3 = row.insertCell(2);
+  const cell4 = row.insertCell(3);
+  const cell5 = row.insertCell(4);
 
-  inventario.forEach((producto) => {
-    if (producto.nombre === nombre) {
-      const fila = document.createElement("tr");
-      fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td>`;
-      tablaContainer.appendChild(fila);
+  cell1.innerHTML = productoEncontrado.id;
+  cell2.innerHTML = productoEncontrado.nombre;
+  cell3.innerHTML = productoEncontrado.cantidad;
+  cell4.innerHTML = productoEncontrado.precio;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.innerHTML = "Borrar";
+  deleteButton.addEventListener("click", () => {
+    if (confirm(`¿Estás seguro que deseas borrar el producto ${productoEncontrado.nombre}?`)) {
+      const index = inventario.findIndex((product) => product.id === productoEncontrado.id);
+      if (index !== -1) {
+        inventario.splice(index, 1);
+      }
+      tablaContainer.innerHTML = "";
+      listaProductos();
     }
   });
 
-  if (tablaContainer.children.length === 0) {
-    // Si no se encontró el producto, muestra un mensaje en la tabla
-    const mensaje = document.createElement("tr");
-    mensaje.innerHTML = "<td colspan='4'>Producto no encontrado.</td>";
-    tablaContainer.appendChild(mensaje);
-  }
+  const updateButton = document.createElement("button");
+  updateButton.innerText = "Actualizar";
+  updateButton.addEventListener("click", () => {
+    // Agregar lógica para actualizar el producto si es necesario
+  });
+
+  cell5.appendChild(deleteButton);
+  cell5.appendChild(updateButton);
+} else {
+  const row = tablaContainer.insertRow();
+  const cell1 = row.insertCell(0);
+  cell1.colSpan = 5;
+  cell1.innerHTML = `Producto no existe o no se encuentra disponible.`;
 }
-const input = document.getElementById("buscar");
-// Llamar a la función con el nombre del producto que deseas buscar y mostrar en la tabla
-buscarProductoEnTabla(nombre).addEventListener("click", () => {
-  const inputValue = inputValue.value.toLowerCase();
-  buscarProductoEnTabla(inputValue); 
-});
-input.addEventListener("keydown", () => {
-  const inputValue = input.value.toLowerCase();
-  buscarProductoEnTabla(inputValue);
-});

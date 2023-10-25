@@ -1,7 +1,7 @@
 import { inventario } from "./inventario.js";
 import { listaProductos } from "./listaProductos.js";
 export const agregarItem = () => {
-  const agregar = document.getElementById("formulario");
+  const agregar = document.getElementById("formulario2");
   agregar.addEventListener("submit", function (event) {
     event.preventDefault();
     const nombreProducto = document.getElementById("nombre").value.trim().toLowerCase();
