@@ -3,7 +3,7 @@ export const buscarProductoPorNombre =(nombre)=> {
   return inventario.find((producto) => producto.nombre === nombre);
 }
 const productoEncontrado = buscarProductoPorNombre(nombre);
-
+const tablaContainer=document.getElementById("tablaBuscador")
 if (productoEncontrado) {
   const row = tablaContainer.insertRow();
   const cell1 = row.insertCell(0);
