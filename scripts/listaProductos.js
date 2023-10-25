@@ -152,60 +152,8 @@ export const listaProductos = () => {
     cell6.colSpan=3;
     cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
     cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
-    /*
-        inventory.forEach(item => {
-
-        const row = table.insertRow()
-
-        const cell1 = row.insertCell(0)
-        const cell2 = row.insertCell(1)
-        const cell3 = row.insertCell(2)
-        const cell4 = row.insertCell(3)
-
-        cell1.innerHTML = item.nombre
-        cell2.innerHTML = item.cantidad
-        cell3.innerHTML = item.precio
-
-        const deleteButton = document.createElement("button")
-        deleteButton.innerText = "Borrar"
-        deleteButton.addEventListener("click", () => {
-            //Se añadira funcionalidad proximamente
-        })
-
-        const updateButton = document.createElement("button")
-        updateButton.innerText = "Actualizar"
-        updateButton.addEventListener("click", () => {
-            //Se añadira funcionalidad proximamente
-        })
-
-        cell4.appendChild(deleteButton)
-        cell4.appendChild(updateButton)
-
-
-    })
-        */
-    /* aqui con while... function actualizacionBody() {
-          const tablaContainer = document.getElementById("body");
-          tablaContainer.innerHTML = "";
-        
-          let i = 0;
-          while (i < inventario.length) {
-            const producto = inventario[i];
-            const fila = document.createElement("tr");
-            fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td>`;
-            tablaContainer.appendChild(fila);
-            i++;
-          }
-        }*/
+    
   }
-  /* function actualizacionPie() {
-    const tablaContainer = document.getElementById("pie");
-    const pie = document.getElementById("totalProducto");
-    const pie2 = document.getElementById("totalPrecio");
-    const fila = document.createElement("tr");
-    pie.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
-    pie2.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
-  }*/
  function actualizacionPie(){
 
  }
@@ -214,40 +162,5 @@ export const listaProductos = () => {
     actualizacionPie();
   });
 
-  function buscarProductoEnTabla(nombre) {
-    const tablaContainer = document.getElementById("body");
-    const tablaContainer2 = document.getElementById("pie");
-    // const tablaContainer2 = document.getElementById("pie");
-    const pie = document.getElementById("totalProducto");
-    const pie2 = document.getElementById("totalPrecio");
-    tablaContainer.innerHTML = "";
-    tablaContainer2.innerHTML = "";
-    pie.innerHTML = "";
-    pie2.innerHTML = "";
 
-    inventario.forEach((producto) => {
-      if (producto.nombre === nombre) {
-        const fila = document.createElement("tr");
-        fila.innerHTML = `<td>${producto.id}</td><td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td>`;
-        tablaContainer.appendChild(fila);
-      }
-    });
 
-    if (tablaContainer.children.length === 0) {
-      // Si no se encontró el producto, muestra un mensaje en la tabla
-      const mensaje = document.createElement("tr");
-      mensaje.innerHTML = "<td colspan='4'>Producto no encontrado.</td>";
-      tablaContainer.appendChild(mensaje);
-    }
-  }
-
-  // Llamar a la función con el nombre del producto que deseas buscar y mostrar en la tabla
-  buscar.addEventListener("click", () => {
-    const inputValue = input.value.toLowerCase();
-    buscarProductoEnTabla(inputValue);
-  });
-  input.addEventListener("keydown", () => {
-    const inputValue = input.value.toLowerCase();
-    buscarProductoEnTabla(inputValue);
-  });
-;
