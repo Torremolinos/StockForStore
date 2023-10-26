@@ -13,16 +13,20 @@
         <img src="assets/img/Alimerka.png" alt="LogoAlimerka">
         <h1>Stock Center</h1>
     </header>
-    <form id="formulario">
-        <h2>BUSCADOR DE PRODUCTOS:</h2>
-            <input type="text" name="input" id="buscar" class="input" placeholder="Inserte producto">
-            <div class="botonesForm">
-                <button id="buscar">Buscar</button>
-                <button id="eliminar">Eliminar</button>
-                <button id="actualizar">Actualizar</button>
-            </div>
-           
-    </form>
+    <div class="formulario">
+        <form id="formulario">
+    
+                <input type="text" name="input" id="buscar" class="input" placeholder="Inserte producto">
+                <div class="botonesForm">
+                    <!--aprendi algo nuevo, los botones dentro de un form mandan la informacion que este asignada
+                    y luego reinician el form, hay que darle siempre TYPE ="Button" para quitarles esa funcion.-->
+                    <button id="btnBuscar" type="button">Buscar</button> 
+                    <button id="eliminar">Eliminar</button>
+                    <button id="actualizar">Actualizar</button>
+                </div>
+        
+        </form>
+    </div>
     <div id="buscador" class="buscador">
         <table>
             <thead>
@@ -40,7 +44,7 @@
         </table> 
      </div>
     <form id="formulario2"> 
-            <h2> AGREGAR PRODUCTO:</h2>
+            
             <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
             <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">
             <input type="number" name="precio" id="precio" required placeholder="Inserta PRECIO">
