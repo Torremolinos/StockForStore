@@ -12,10 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
   botonAgregar.addEventListener("click", () => {
     agregarItem();
   });
+
   document.addEventListener("DOMContentLoaded", () => {
     const botonBuscar = document.getElementById("formulario");
     botonBuscar.addEventListener("click", () => {
       buscarProducto();
     });
   });
+  // Escucha el evento "productoActualizado" de la ventana emergente
+window.addEventListener("productoActualizado", (event) => {
+  const productoModificado = event.detail;
+  // Actualiza el producto en el inventario en tiempo real
+  actualizarProductoEnInventario(productoModificado);
+});
 });

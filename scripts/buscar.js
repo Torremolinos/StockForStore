@@ -4,6 +4,7 @@ export const buscarProducto = () => {
   const tablaContainer = document.getElementById("tablaBuscador");
   const input = document.getElementById("buscar").value.toLowerCase(); // Obtener el valor del campo de búsqueda
   let productoEncontrado = null;
+  tablaContainer.innerHTML = "";
   for (const producto of inventario) {
     if (producto.nombre.toLowerCase() === input) {
       productoEncontrado = producto;
