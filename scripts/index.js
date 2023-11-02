@@ -20,9 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   // Escucha el evento "productoActualizado" de la ventana emergente
-window.addEventListener("productoActualizado", (event) => {
-  const productoModificado = event.detail;
-  // Actualiza el producto en el inventario en tiempo real
-  actualizarProductoEnInventario(productoModificado);
-});
+  
 });
