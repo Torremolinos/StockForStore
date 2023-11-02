@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alimerka StockWebsite</title>
-    <link rel="icon" type="image/ico" href="/favicon-32x32.ico"/>
+    <link rel="icon" type="image/ico" href="/favicon-32x32.ico" />
     <link rel="stylesheet" href="styles/style.css">
 </head>
+
 <body>
     <header class="header">
         <img src="assets/img/Alimerka.png" alt="LogoAlimerka">
@@ -15,39 +16,37 @@
     </header>
     <div class="formulario">
         <form id="formulario">
-    
-                <input type="text" name="input" id="buscar" class="input" placeholder="Inserte producto">
-                <div class="botonesForm">
-                    <!--aprendi algo nuevo, los botones dentro de un form mandan la informacion que este asignada
+            <input type="text" name="input" id="buscar" class="input" placeholder="Inserte producto">
+            <div class="botonesForm">
+                <!--aprendi algo nuevo, los botones dentro de un form mandan la informacion que este asignada
                     y luego reinician el form, hay que darle siempre TYPE ="Button" para quitarles esa funcion.-->
-                    <button id="btnBuscar" type="button">Buscar</button> 
-                </div>
-        
+                <button id="btnBuscar" type="button">Buscar</button>
+            </div>
         </form>
     </div>
-    <div id="buscador" class="buscador">
+    <div class="hidden" id="tablaBusca">
         <table>
-            <thead>
-         <tr>
-             <th>ID</th>
-             <th>PRODUCTO</th>
-             <th>CANTIDAD</th>
-             <th>PRECIO</th>
-             <th>ACCIONES</th>
-         </tr>
-        </thead>
-        <tbody id="tablaBuscador">
-           
-        </tbody>
-        </table> 
-     </div>
-    <form id="formulario2">  
-            <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
-            <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">
-            <input type="number" name="precio" id="precio" required placeholder="Inserta PRECIO">
-            <div class="botonProduct">
+            <thead >
+                <tr>
+                    <th>ID</th>
+                    <th>PRODUCTO</th>
+                    <th>CANTIDAD</th>
+                    <th>PRECIO</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody id="tablaBuscador">
+
+            </tbody>
+        </table>
+    </div>
+    <form id="formulario2">
+        <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
+        <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">
+        <input type="number" name="precio" id="precio" required placeholder="Inserta PRECIO">
+        <div class="botonProduct">
             <button type="submit">Agregar</button>
-            </div>
+        </div>
     </form>
     <div class="contenedor">
         <div id="tablaContainer">
@@ -63,13 +62,13 @@
                 </thead>
                 <tbody id="body">
                 </tbody>
-                <tfoot id="pie">    
+                <tfoot id="pie">
                 </tfoot>
             </table>
-    </div>
-      <!--Type module importante.-->
-      <script type="module" src="scripts/index.js"></script>
-  
+        </div>
+        <!--Type module importante.-->
+        <script type="module" src="scripts/index.js"></script>
+
 </body>
 
 </html>

@@ -129,3 +129,9 @@ tfoot tr:hover {
 tfoot{
   border: #451a03;
 }
+.hidden{
+  display: none;
+}
+.showed{
+  display:block;
+}

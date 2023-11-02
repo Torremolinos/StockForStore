@@ -1,11 +1,9 @@
- /*Aqui tenemos el metodo Lista de productos con esto mostramos la lista en una tabla.
+/*Aqui tenemos el metodo Lista de productos con esto mostramos la lista en una tabla.
  importamos el inventario de prodcutos con el import desde el js indicado.
  Luego nosotros exportamos  lista de productos para que pueda ser usado en otro js llamado desde aqui.
- */ 
+ */
 import { inventario } from "./inventario.js";
 export const listaProductos = () => {
-
-
   const cantidadTotal = () => {
     let cantidadTotal = 0;
     inventario.forEach((producto) => {
@@ -55,7 +53,8 @@ export const listaProductos = () => {
           inventario.splice(index, 1);
         }
       }
-      tablaContainer.innerHTML = "";
+      tablaContainer.innerHTML = ""; //limpiamos la tabla entera para luego refrescarla con listaProdcutos() esto genera "un cambio automatico"
+      tablaContainer2.innerHTML = "";//Limpiamos tambien el pie con la cantidad total y el precio total.
       listaProductos();
     });
 
@@ -67,13 +66,11 @@ export const listaProductos = () => {
     cell5.appendChild(updateButton);
   });
 
-  const tablacontainer2 = document.getElementById("pie");
-  const row2 = tablacontainer2.insertRow();
+  const tablaContainer2 = document.getElementById("pie");
+  const row2 = tablaContainer2.insertRow();
   const cell6 = row2.insertCell(0);
   const cell7 = row2.insertCell(1);
   cell6.colSpan = 3;
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
 };
-
-

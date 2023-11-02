@@ -8,7 +8,7 @@ import { buscarProducto } from "./buscar.js";
 
 document.addEventListener("DOMContentLoaded", listaProductos);
 document.addEventListener("DOMContentLoaded", () => {
-  const botonAgregar = document.getElementById("formulario");
+  const botonAgregar = document.getElementById("formulario2");
   botonAgregar.addEventListener("click", () => {
     agregarItem();
   });
@@ -20,5 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   // Escucha el evento "productoActualizado" de la ventana emergente
-  
 });

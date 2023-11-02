@@ -1,5 +1,6 @@
 import { inventario } from "./inventario.js";
 import { listaProductos } from "./listaProductos.js";
+
 export const agregarItem = () => {
   const agregar = document.getElementById("formulario2");
   agregar.addEventListener("submit", function (event) {
@@ -20,7 +21,9 @@ export const agregarItem = () => {
       console.log(newItem.id);
       //ahora para limpiar la tabla según lo que tenia antes y confirmo David.
       const limpiarTabla = document.getElementById("body");
+      const limpiarTabla2 = document.getElementById("pie");
       limpiarTabla.innerHTML = "";
+      limpiarTabla2.innerHTML = "";
       agregar.reset(); //esto resetea los campos en vez de tener que poner innerHTML ="";
       listaProductos();
     }
