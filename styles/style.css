@@ -132,3 +132,29 @@ tfoot {
 .showed {
   display: block;
 }
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  /*esto hace que no se vea*/
+  opacity: 0;
+  /*pero sigues sin poder tocar nada de la pagina principal asi que necesitamo esto otro*/
+  pointer-events: none;
+}
+.modal_container {
+  margin: auto;
+  width: 90%;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-column: 100%;
+}
+/*esto va a ser una clase modificadora*/
+.modal--show {
+  opacity: 1;
+  pointer-events: unset;
+}

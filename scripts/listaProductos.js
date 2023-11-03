@@ -26,6 +26,7 @@ export const listaProductos = () => {
   /*Aqui tengo la tabla esto corresponde a la parte del body y luego tenemos la parte del pie*/
   const tablaContainer = document.getElementById("body");
   const tablaContainer3 = document.getElementById("tablaBuscador");
+
   inventario.forEach((item) => {
     const row = tablaContainer.insertRow();
     const cell1 = row.insertCell(0);
@@ -62,13 +63,18 @@ export const listaProductos = () => {
     });
 
     const updateButton = document.createElement("button");
+    const modal = document.querySelector('.modal');
+   
     updateButton.innerText = "Actualizar";
-    updateButton.addEventListener("click", () => {});
+    
+    updateButton.addEventListener("click", () => {
+      modal.classList.add('modal--show');
+    });
 
     cell5.appendChild(deleteButton);
     cell5.appendChild(updateButton);
   });
-
+  
   const tablaContainer2 = document.getElementById("pie");
   const row2 = tablaContainer2.insertRow();
   const cell6 = row2.insertCell(0);
@@ -76,4 +82,9 @@ export const listaProductos = () => {
   cell6.colSpan = 3;
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
+  const modal = document.querySelector('.modal');
+  const closeModal = document.getElementById('modal_close');
+  closeModal.addEventListener("click", () => {
+    modal.classList.remove('modal--show');
+  });
 };
