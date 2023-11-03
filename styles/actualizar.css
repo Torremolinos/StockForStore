@@ -6,7 +6,7 @@ body{
 form {
   font-weight: bold;
   display: flex;
-  align-items: c;
+  align-items: center;
   background: linear-gradient(45deg, #ffcd00, #edcb43);
   padding: 20px;
   border: 4px solid #78340f;
@@ -17,11 +17,9 @@ form {
 input {
   font-weight: bold;
   width: 20%;
-  margin-top: auto;
   padding: 10px;
   color: black;
   border-color: #0a0a09;
-  font-size: 15px;
   border-radius: 5px;
 }
 
@@ -33,9 +31,9 @@ button {
   font-size: 15px;
   color: #78340f;
   padding: 0px;
-  height: auto;
+  height: 40px;
   margin: 15px;
-  width: auto;
+  width: 150px;
   text-align: center;
   transition-duration: 0.4s;
   text-decoration: none;

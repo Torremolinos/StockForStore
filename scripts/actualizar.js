@@ -14,4 +14,5 @@ updateButton.innerText = "Actualizar";
 updateButton.addEventListener("click", () => {
   abrirFormularioActualizacion(item); // Pasa el objeto del producto a la ventana emergente
 });
+
 // window.location.href ='salir.html';

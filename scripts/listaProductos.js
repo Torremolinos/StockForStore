@@ -25,6 +25,7 @@ export const listaProductos = () => {
   };
   /*Aqui tengo la tabla esto corresponde a la parte del body y luego tenemos la parte del pie*/
   const tablaContainer = document.getElementById("body");
+  const tablaContainer3 = document.getElementById("tablaBuscador");
   inventario.forEach((item) => {
     const row = tablaContainer.insertRow();
     const cell1 = row.insertCell(0);
@@ -54,7 +55,9 @@ export const listaProductos = () => {
         }
       }
       tablaContainer.innerHTML = ""; //limpiamos la tabla entera para luego refrescarla con listaProdcutos() esto genera "un cambio automatico"
-      tablaContainer2.innerHTML = "";//Limpiamos tambien el pie con la cantidad total y el precio total.
+      tablaContainer2.innerHTML = ""; //Limpiamos tambien el pie con la cantidad total y el precio total.
+      tablaContainer3.innerHTML = ""; //limpiamos la tabla de buscar
+    
       listaProductos();
     });
 
