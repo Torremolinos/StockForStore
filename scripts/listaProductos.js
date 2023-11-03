@@ -58,23 +58,39 @@ export const listaProductos = () => {
       tablaContainer.innerHTML = ""; //limpiamos la tabla entera para luego refrescarla con listaProdcutos() esto genera "un cambio automatico"
       tablaContainer2.innerHTML = ""; //Limpiamos tambien el pie con la cantidad total y el precio total.
       tablaContainer3.innerHTML = ""; //limpiamos la tabla de buscar
-    
+
       listaProductos();
     });
 
     const updateButton = document.createElement("button");
-    const modal = document.querySelector('.modal');
-   
     updateButton.innerText = "Actualizar";
-    
+
     updateButton.addEventListener("click", () => {
-      modal.classList.add('modal--show');
+      // Obtén los elementos de entrada en la modal
+      const modal = document.querySelector(".modal");
+      const idInput = document.getElementById("idModal");
+      const nombreInput = document.getElementById("nombreModal");
+      const cantidadInput = document.getElementById("cantidadModal");
+      const precioInput = document.getElementById("precioModal");
+
+      // Obtén los datos actuales del producto
+      const id = item.id;
+      const producto = inventario.find((product) => product.id === id);
+
+      // Carga los datos actuales en los campos de entrada
+      idInput.value = producto.id;
+      nombreInput.value = producto.nombre;
+      cantidadInput.value = producto.cantidad;
+      precioInput.value = producto.precio;
+
+      // Muestra la modal
+      modal.classList.add("modal--show");
     });
 
     cell5.appendChild(deleteButton);
     cell5.appendChild(updateButton);
   });
-  
+
   const tablaContainer2 = document.getElementById("pie");
   const row2 = tablaContainer2.insertRow();
   const cell6 = row2.insertCell(0);
@@ -82,9 +98,44 @@ export const listaProductos = () => {
   cell6.colSpan = 3;
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
-  const modal = document.querySelector('.modal');
-  const closeModal = document.getElementById('modal_close');
+
+  const modal = document.querySelector(".modal");
+  const closeModal = document.getElementById("modal_close");
+  const idInput = document.getElementById("idModal");
+  const nombreInput = document.getElementById("nombreModal");
+  const cantidadInput = document.getElementById("cantidadModal");
+  const precioInput = document.getElementById("precioModal");
+
   closeModal.addEventListener("click", () => {
-    modal.classList.remove('modal--show');
+    const id = parseInt(idInput.value);
+    console.log(id);
+    const nuevoNombre = nombreInput.value;
+    console.log(nuevoNombre);
+    const nuevaCantidad = parseInt(cantidadInput.value);
+    console.log(nuevaCantidad);
+    const nuevoPrecio = parseFloat(precioInput.value);
+    console.log(nuevoPrecio);
+
+    // Actualiza el producto en el inventario con los nuevos valores
+
+    const producto = inventario.find((product) => product.id === id);
+    console.log(producto);
+    if (producto) {
+      producto.nombre = nuevoNombre;
+      console.log(nuevoNombre);
+      producto.cantidad = nuevaCantidad;
+      console.log(nuevaCantidad);
+      producto.precio = nuevoPrecio;
+      console.log(nuevoPrecio);
+    }
+
+    // Limpia y vuelve a mostrar la lista de productos actualizada
+    tablaContainer.innerHTML = "";
+    tablaContainer2.innerHTML = "";
+    tablaContainer3.innerHTML = "";
+    listaProductos();
+
+    // Cierra la modal
+    modal.classList.remove("modal--show");
   });
 };
