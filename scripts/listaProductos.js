@@ -53,6 +53,10 @@ export const listaProductos = () => {
         if (index !== -1) {
           //Borramos el producto del array, le indicamos el objeto y cuantos queremos borrar
           inventario.splice(index, 1);
+          // Decrementa el id de los productos con un id mayor al del producto borrado
+          for (let i = index; i < inventario.length; i++) {
+            inventario[i].id -= 1;
+          }
         }
       }
       tablaContainer.innerHTML = ""; //limpiamos la tabla entera para luego refrescarla con listaProdcutos() esto genera "un cambio automatico"
@@ -93,16 +97,22 @@ export const listaProductos = () => {
 
   const tablaContainer2 = document.getElementById("pie");
   const row2 = tablaContainer2.insertRow();
+  //intentando añadir el boton de subir
   const subir = document.createElement("button");
   subir.innerText = "Subir";
   const cell6 = row2.insertCell(0);
   const cell7 = row2.insertCell(1);
   const cell8 = row2.insertCell(2);
+  //si no funciona el botton de subir en la cell7 pon colSpan 2.
   cell6.colSpan = 3;
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
   cell8.appendChild(subir);
-  
+  /*Esta funcion "la saque de chatgpt" sirve para subir arriba del todo.*/
+  subir.addEventListener("click", function () {
+    document.body.scrollTop = 0; // Para navegadores antiguos
+    document.documentElement.scrollTop = 0; // Para navegadores modernos
+  });
   const modal = document.querySelector(".modal");
   const closeModal = document.getElementById("modal_close");
   const idInput = document.getElementById("idModal");

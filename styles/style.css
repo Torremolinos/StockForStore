@@ -76,7 +76,8 @@ th,
 td {
   border: 3px solid #451a03 ;
   text-align: center !important;
-  padding: 15px;
+  vertical-align: middle;
+  padding: auto !important;
   color: #451a03;
   font-size: 30px;
   font-weight: bold;
@@ -97,6 +98,7 @@ input {
   font-weight: bold;
   width: 100%;
   margin-top: auto;
+  margin: 5px !important;
   padding: 10px;
   color: black;
   border-color: #0a0a09;
@@ -120,7 +122,7 @@ button {
   color: #78340f;
   padding: 0px;
   height: 50px;
-  margin: 15px;
+  margin: 15px !important;
   width: 200px;
   text-align: center;
   transition-duration: 0.4s;
@@ -189,4 +191,7 @@ tfoot {
   pointer-events: unset !important;
   /*animacion de opacidad crea esa animacion que te trae al Modal.*/
   transition: opacity .6s !important;
+}
+.audio{
+
 }
