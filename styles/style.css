@@ -33,14 +33,14 @@ h1 {
 form {
   font-weight: bold; /*negrita*/
   display: flex;
-  background: linear-gradient(45deg, #ffcd00, #edcb43);
+  background: linear-gradient(45deg, #ffcd00, #edcb43); /*degradado con los colores del pagina de ALimerka*/
   padding: 20px;
   border: 4px solid #78340f;
   border-radius: 5px;
   margin: 20px;
   width: auto;
   font-family: 'Poppins' !important;
-  box-shadow: 10px 10px 31px 2px rgba(0,0,0,0.3);
+  box-shadow: 10px 10px 31px 2px rgba(0,0,0,0.3); /*https://cssgenerator.org/box-shadow-css-generator.html sombra creada en esta página.*/
 }
 .botonesForm {
   display: flex;
@@ -78,7 +78,7 @@ th,
 td {
   border: 3px solid #451a03 ;
   text-align: center !important;
-  vertical-align: middle;
+  vertical-align: middle; /*centrado vertical en tablas.*/
   padding: auto !important;
   color: #451a03;
   font-size: 30px;
@@ -158,7 +158,8 @@ tfoot {
   display: block!important;
 }
 .modal {
-  position: fixed !important;
+  position: fixed !important; /*se posiciona de manera fija*/
+  /*con esto logras que se quede centrado.*/
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;

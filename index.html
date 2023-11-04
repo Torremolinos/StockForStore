@@ -12,15 +12,20 @@
 </head>
 
 <body>
+    <!--No agrego botones ARIA porque no se como podria afectar a mi código, pero en futuro probare, esto haria que fuera mas accesible.-->
     <header class="header">
-        <img src="assets/img/Alimerka.png" alt="LogoAlimerka">
+        <img src="assets/img/Alimerka.png" alt="Logotipo de Alimerka">
+        <!--Uso el alt para darle mas accesibilidad y describo correctamente-->
         <h1>Stock Center</h1>
         <div class="audio">
-            <audio src="/assets/mp3/alimerka.mp3" controls="controls"></audio>
+            <!--Agrego un Atributo 'arial-label' al reproductor de audio para proporcionar una descripción conscisa del audio.-->
+            <audio src="/assets/mp3/alimerka.mp3" controls="controls" aria-label="Reproductor de audio de Alimerka"></audio>
         </div>
     </header>
     <div class="formulario">
         <form id="formulario">
+            <!--Me faltaria las etiquetas de label para mejorar la navegacion y compresion de formualarios 
+                pero con el placeholder intento suplir para que se adapte a un diseño que me gusta más-->
             <input type="text" name="input" id="buscar" class="input" placeholder="Inserte producto">
             <div class="botonesForm">
                 <!--aprendi algo nuevo, los botones dentro de un form mandan la informacion que este asignada
@@ -46,9 +51,11 @@
         </table>
     </div>
     <form id="formulario2">
+        <!--tanto en el otro formulario como en este me aseguro que de las etiquetas de mis campos sean descriptivas-->
         <input type="text" name="nombre" id="nombre" required placeholder="Inserta NOMBRE">
         <input type="number" name="cantidad" id="cantidad" required placeholder="Inserta CANTIDAD">
-        <input type="number" name="precio" id="precio" step="0.01" required placeholder="Inserta PRECIO"> <!--step="0.01" me deja meter numeros decimales hasta 2 decimales.-->
+        <input type="number" name="precio" id="precio" step="0.01" required placeholder="Inserta PRECIO">
+        <!--step="0.01" me deja meter numeros decimales hasta 2 decimales.-->
         <div class="botonProduct">
             <button type="submit">Agregar</button>
         </div>
@@ -88,7 +95,7 @@
         </section>
         <!--Type module importante.-->
         <script type="module" src="scripts/index.js"></script>
-       
+
 </body>
 
 </html>

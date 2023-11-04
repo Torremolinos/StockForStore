@@ -113,7 +113,7 @@ export const listaProductos = () => {
     document.body.scrollTop = 0; // Para navegadores antiguos
     document.documentElement.scrollTop = 0; // Para navegadores modernos
   });
-  const modal = document.querySelector(".modal");
+  const modal = document.querySelector(".modal"); /*Con querySelector seleccionamos modal.*/
   const cancelar = document.getElementById("cancelar");
   const closeModal = document.getElementById("modal_close");
   const idInput = document.getElementById("idModal");

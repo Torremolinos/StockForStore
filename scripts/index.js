@@ -19,5 +19,4 @@ document.addEventListener("DOMContentLoaded", () => {
       buscarProducto();
     });
   });
-  // Escucha el evento "productoActualizado" de la ventana emergente
 });
