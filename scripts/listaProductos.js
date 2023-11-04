@@ -114,12 +114,16 @@ export const listaProductos = () => {
     document.documentElement.scrollTop = 0; // Para navegadores modernos
   });
   const modal = document.querySelector(".modal");
+  const cancelar = document.getElementById("cancelar");
   const closeModal = document.getElementById("modal_close");
   const idInput = document.getElementById("idModal");
   const nombreInput = document.getElementById("nombreModal");
   const cantidadInput = document.getElementById("cantidadModal");
   const precioInput = document.getElementById("precioModal");
 
+  cancelar.addEventListener("click",() =>{
+    modal.classList.remove("modal--show");
+  })
   /*Aqui cuando apretas el boton actualizar cierras la ventana modal dando 
   marcha al addEventlistener que arranca todo esto.*/
   closeModal.addEventListener("click", () => {

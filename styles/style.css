@@ -40,6 +40,7 @@ form {
   margin: 20px;
   width: auto;
   font-family: 'Poppins' !important;
+  box-shadow: 10px 10px 31px 2px rgba(0,0,0,0.3);
 }
 .botonesForm {
   display: flex;
@@ -70,6 +71,7 @@ table {
   border-collapse: collapse;
   /*collapse es para que se junten las barritas*/
   font-family: 'Poppins';
+  box-shadow: 10px 10px 31px 2px rgba(0,0,0,0.3);
 }
 
 th,
