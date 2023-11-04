@@ -19,8 +19,8 @@ h1 {
   text-align: center;
   margin: 5px;
   padding: 5px;
-  color: #ffcd00 ; /*dudas sobre ponerlo de ese color...*/
-  font-size: 50px;
+  color: #ffcd00 !important; /*dudas sobre ponerlo de ese color...*/
+  font-size: 5rem !important;
   font-family: 'Poppins';
 }
 .formulario {
@@ -54,7 +54,7 @@ form {
 header {
   font-weight: bold;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   font-family: 'Poppins' !important;
 }
