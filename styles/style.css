@@ -1,4 +1,9 @@
 /*Colores Sacados de la propia pagina del Alimerka.*/
+/*la Font family tambien es sacada de Alimerka pero bajada de googlefonts*/
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/poppins/Poppins-Bold.ttf') format('truetype');
+}
 * {
   box-sizing: border-box;
   margin: auto;
@@ -16,12 +21,14 @@ h1 {
   padding: 5px;
   color: #ffcd00;
   font-size: 50px;
+  font-family: 'Poppins';
 }
 .formulario {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: auto;
+  font-family: 'Poppins';
 }
 form {
   font-weight: bold; /*negrita*/
@@ -32,24 +39,29 @@ form {
   border-radius: 5px;
   margin: 20px;
   width: auto;
+  font-family: 'Poppins';
 }
 .botonesForm {
   display: flex;
   justify-content: center;
+  font-family: 'Poppins';
 }
 .botonProduct {
   display: flex;
   justify-content: center;
+  font-family: 'Poppins';
 }
 header {
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Poppins';
 }
 .contenedor {
   padding: 4px;
   margin: 4px;
+  font-family: 'Poppins';
 }
 
 table {
@@ -57,6 +69,7 @@ table {
   width: 98%; /* Ancho de la tabla al 100% del contenedor */
   border-collapse: collapse;
   /*collapse es para que se junten las barritas*/
+  font-family: 'Poppins';
 }
 
 th,
@@ -67,12 +80,14 @@ td {
   color: #451a03;
   font-size: 30px;
   font-weight: bold;
+  font-family: 'Poppins';
 }
 
 th {
   background: linear-gradient(45deg, #ffcd00, #edcb43);
   color: #2a1f1f;
   font-size: 30px;
+  font-family: 'Poppins';
 }
 tbody tr:hover {
   background-color: #d87607;
@@ -87,10 +102,11 @@ input {
   border-color: #0a0a09;
   font-size: 40px;
   border-radius: 5px;
+  font-family: 'Poppins';
 }
 
 button:hover {
-  background: linear-gradient(45deg, #fdfd06, #bc560a);
+  background:rgb(255, 255, 255);
   cursor: pointer;
 }
 
@@ -111,6 +127,7 @@ button {
   text-decoration: none;
   overflow: hidden;
   cursor: pointer;
+  font-family: 'Poppins';
 }
 li {
   color: #451a03;
@@ -121,6 +138,7 @@ li {
   padding: 15px;
   color: #451a03;
   cursor: pointer;
+  font-family: 'Poppins';
 }
 tfoot tr:hover {
   background-color: #d87607;
@@ -150,6 +168,7 @@ tfoot {
   /*animacion de opacidad crea esa animacion que te trae al Modal.*/
   transition: opacity .6s;
   --transform:traslateY(-100vh);
+  font-family: 'Poppins';
 
 }
 .modal_container {
@@ -162,6 +181,7 @@ tfoot {
   grid-column: 100%;
   background: #111111bd;
   transform: var(--transform);
+  font-family: 'Poppins';
 }
 /*esto va a ser una clase modificadora*/
 .modal--show {

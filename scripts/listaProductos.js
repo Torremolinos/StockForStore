@@ -66,14 +66,14 @@ export const listaProductos = () => {
     updateButton.innerText = "Actualizar";
 
     updateButton.addEventListener("click", () => {
-      // Obtén los elementos de entrada en la modal
+      // Obtenemos los elementos de entrada en la modal
       const modal = document.querySelector(".modal");
       const idInput = document.getElementById("idModal");
       const nombreInput = document.getElementById("nombreModal");
       const cantidadInput = document.getElementById("cantidadModal");
       const precioInput = document.getElementById("precioModal");
 
-      // Obtén los datos actuales del producto
+      // Obtengo los datos actuales del producto
       const id = item.id;
       const producto = inventario.find((product) => product.id === id);
 
@@ -106,22 +106,26 @@ export const listaProductos = () => {
   const cantidadInput = document.getElementById("cantidadModal");
   const precioInput = document.getElementById("precioModal");
 
+  /*Aqui cuando apretas el boton actualizar cierras la ventana modal dando 
+  marcha al addEventlistener que arranca todo esto.*/
   closeModal.addEventListener("click", () => {
-    const id = parseInt(idInput.value);
+    const id = parseInt(idInput.value);/*recibo el valor del ID me daba error sin el, porque el id de abajo no recibia parametros*/
+    /*Todos los logs de abajo son para comprobar que recibo bien los parametros*/
     console.log(id);
-    const nuevoNombre = nombreInput.value;
+    const nuevoNombre = nombreInput.value; 
     console.log(nuevoNombre);
     const nuevaCantidad = parseInt(cantidadInput.value);
     console.log(nuevaCantidad);
     const nuevoPrecio = parseFloat(precioInput.value);
     console.log(nuevoPrecio);
 
-    // Actualiza el producto en el inventario con los nuevos valores
+    // Una vez tenemos los parametros asegurados actualizamos el producto en el inventario con los nuevos valores
 
     const producto = inventario.find((product) => product.id === id);
     console.log(producto);
     if (producto) {
       producto.nombre = nuevoNombre;
+      /*Lo mismo cada log esta para comprobar que los datos pasan correctamente.*/
       console.log(nuevoNombre);
       producto.cantidad = nuevaCantidad;
       console.log(nuevaCantidad);
@@ -135,7 +139,7 @@ export const listaProductos = () => {
     tablaContainer3.innerHTML = "";
     listaProductos();
 
-    // Cierra la modal
+    // Cierra la ventana modal 
     modal.classList.remove("modal--show");
   });
 };

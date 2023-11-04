@@ -6,8 +6,10 @@ export const agregarItem = () => {
   agregar.addEventListener("submit", function (event) {
     event.preventDefault();
     const nombreProducto = document.getElementById("nombre").value.trim().toLowerCase();
-    const cantidadProducto = parseFloat(document.getElementById("cantidad").value);
-    const precioProducto = parseFloat(document.getElementById("precio").value);
+    const cantidadProducto = parseInt(document.getElementById("cantidad").value);
+    console.log(cantidadProducto)
+    const precioProducto = parseFloat(document.getElementById("precio").value);/*aunque es float no me deja meter decimales que raro*/ 
+    console.log(precioProducto)
 
     if (nombreProducto && !isNaN(cantidadProducto) && !isNaN(precioProducto)) {
       const newItem = {
