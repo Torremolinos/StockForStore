@@ -93,12 +93,16 @@ export const listaProductos = () => {
 
   const tablaContainer2 = document.getElementById("pie");
   const row2 = tablaContainer2.insertRow();
+  const subir = document.createElement("button");
+  subir.innerText = "Subir";
   const cell6 = row2.insertCell(0);
   const cell7 = row2.insertCell(1);
+  const cell8 = row2.insertCell(2);
   cell6.colSpan = 3;
   cell6.innerHTML = `TOTAL PRODUCTOS ${cantidadTotal()}`;
   cell7.innerHTML = `PRECIO TOTAL ${precioTotal().toFixed(2)}€`;
-
+  cell8.appendChild(subir);
+  
   const modal = document.querySelector(".modal");
   const closeModal = document.getElementById("modal_close");
   const idInput = document.getElementById("idModal");
@@ -109,10 +113,12 @@ export const listaProductos = () => {
   /*Aqui cuando apretas el boton actualizar cierras la ventana modal dando 
   marcha al addEventlistener que arranca todo esto.*/
   closeModal.addEventListener("click", () => {
-    const id = parseInt(idInput.value);/*recibo el valor del ID me daba error sin el, porque el id de abajo no recibia parametros*/
+    const id = parseInt(
+      idInput.value
+    ); /*recibo el valor del ID me daba error sin el, porque el id de abajo no recibia parametros*/
     /*Todos los logs de abajo son para comprobar que recibo bien los parametros*/
     console.log(id);
-    const nuevoNombre = nombreInput.value; 
+    const nuevoNombre = nombreInput.value;
     console.log(nuevoNombre);
     const nuevaCantidad = parseInt(cantidadInput.value);
     console.log(nuevaCantidad);
@@ -139,7 +145,7 @@ export const listaProductos = () => {
     tablaContainer3.innerHTML = "";
     listaProductos();
 
-    // Cierra la ventana modal 
+    // Cierra la ventana modal
     modal.classList.remove("modal--show");
   });
 };
