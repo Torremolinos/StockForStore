@@ -1,3 +1,4 @@
+/*Colores Sacados de la propia pagina del Alimerka.*/
 * {
   box-sizing: border-box;
   margin: auto;
@@ -23,7 +24,7 @@ h1 {
   width: auto;
 }
 form {
-  font-weight: bold;
+  font-weight: bold; /*negrita*/
   display: flex;
   background: linear-gradient(45deg, #ffcd00, #edcb43);
   padding: 20px;
@@ -55,6 +56,7 @@ table {
   border: 4px solid #78340f;
   width: 98%; /* Ancho de la tabla al 100% del contenedor */
   border-collapse: collapse;
+  /*collapse es para que se junten las barritas*/
 }
 
 th,
@@ -95,6 +97,7 @@ button:hover {
 button {
   font-weight: bold;
   position: relative;
+  /*colores sacados de la misma página de Alimerka jeje*/
   background: linear-gradient(45deg, #fabe25, #d87607);
   border: none;
   font-size: 28px;
@@ -143,18 +146,27 @@ tfoot {
   opacity: 0;
   /*pero sigues sin poder tocar nada de la pagina principal asi que necesitamo esto otro*/
   pointer-events: none;
+  background:  #111111bd;
+  /*animacion de opacidad crea esa animacion que te trae al Modal.*/
+  transition: opacity .6s;
+  --transform:traslateY(-100vh);
+
 }
 .modal_container {
   margin: auto;
-  width: 90%;
+  width: 100%;
   border-radius: 6px;
   padding: 3em 2.5em;
   display: grid;
   gap: 1em;
   grid-column: 100%;
+  background: #111111bd;
+  transform: var(--transform);
 }
 /*esto va a ser una clase modificadora*/
 .modal--show {
   opacity: 1;
   pointer-events: unset;
+  /*animacion de opacidad crea esa animacion que te trae al Modal.*/
+  transition: opacity .6s;
 }
