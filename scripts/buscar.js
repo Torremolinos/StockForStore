@@ -18,13 +18,11 @@ export const buscarProducto = (event) => {
   }
   if (productoEncontrado) {
     const row = tablaContainer.insertRow();
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-    const cell3 = row.insertCell(2);
-    const cell4 = row.insertCell(3);
-    const cell5 = row.insertCell(4);
+    const cell2 = row.insertCell(0);
+    const cell3 = row.insertCell(1);
+    const cell4 = row.insertCell(2);
+    const cell5 = row.insertCell(3);
 
-    cell1.innerHTML = productoEncontrado.id;
     cell2.innerHTML = productoEncontrado.nombre;
     cell3.innerHTML = productoEncontrado.cantidad;
     cell4.innerHTML = productoEncontrado.precio;
